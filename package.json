@@ -1,0 +1,23 @@
+{
+  "name": "inchat-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "<vip.arman2011@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "backpack",
+    "build": "backpack build"
+  },
+  "devDependencies": {
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0"
+  },
+  "dependencies": {
+    "backpack-core": "^0.7.0",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0"
+  }
+}
