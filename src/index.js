@@ -8,15 +8,16 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello world</h1>');
 });
 
-let users = [];
+const users = [];
 io.on('connection', (socket) => {
-  let addedUser = false;
-  socket.on('add user', (username) => {
-    if (addedUser) return;
-    addedUser = true;
-    users = [...users, { username }];
-  });
-  socket.emit('users', users);
+  const addedUser = false;
+  // socket.on('add user', (username) => {
+  //   if (addedUser) return;
+  //   addedUser = true;
+  //   users = [...users, { username }];
+  // });
+  // socket.emit('users', users);
+  socket.on('send_message', text => io.emit('get_message', text));
 });
 
 http.listen(port, () => {
