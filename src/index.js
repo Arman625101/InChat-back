@@ -17,7 +17,7 @@ io.on('connection', (socket) => {
     users = [...users, user];
     io.emit('get_users', users);
   });
-  socket.on('send_message', text => io.emit('get_messages', text));
+  socket.on('send_message', data => io.emit('get_messages', data));
 });
 
 http.listen(port, () => {
