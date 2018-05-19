@@ -6,6 +6,7 @@
   },
   "rules": {
     "no-unused-vars": "warn",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "no-param-reassign": "warn"
   }
 }
