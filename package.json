@@ -1,7 +1,7 @@
 {
   "name": "inchat-back",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "author": "<vip.arman2011@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -22,6 +22,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.1.1",
     "socket.io": "^2.1.1"
   }
