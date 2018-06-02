@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 auth.post('/register', (req, res) => {
+  console.log(req.options);
   const {
     email, username, password, passwordConf,
   } = req.body;

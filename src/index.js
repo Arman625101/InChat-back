@@ -7,15 +7,17 @@ const auth = require('./routes/auth');
 require('dotenv').config();
 const User = require('./models/user');
 const jwtVerify = require('./middleware/jwtVerify');
+const cors = require('cors');
 
 mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}${process.env.DB_HOST}:29540/inchat`);
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/auth', auth);
-app.use(jwtVerify);
+// app.use(jwtVerify);
 
 app.post('/user/:email', (req, res) => {
   console.log(req.body.email);
