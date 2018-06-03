@@ -8,7 +8,6 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 auth.post('/register', (req, res) => {
-  console.log(req.options);
   const {
     email, username, password, passwordConf,
   } = req.body;
@@ -19,11 +18,13 @@ auth.post('/register', (req, res) => {
         username,
         password: hash,
       };
-      User.create(userData).catch(error => res.status(500).json({ error }));
+      User.create(userData)
+        .then(data => res.send({ data }))
+        .catch(error => res.send({ error }));
     } else if (password !== passwordConf) {
-      res.send({ error: "Passwords don't match" });
+      res.send({ error: true, errorMsg: "Passwords don't match" });
     } else {
-      res.send({ error: 'all fields required' });
+      res.send({ error: true, errorMsg: 'Something went wrong' });
     }
   });
 });
@@ -34,7 +35,7 @@ auth.post('/login', (req, res) => {
     .then((user) => {
       bcrypt.compare(req.body.password, user.password, (err, result) => {
         if (err) {
-          return res.status(401).send({
+          return res.status(401).json({
             failed: 'Unauthorized Access',
           });
         }
