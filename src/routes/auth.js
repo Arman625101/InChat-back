@@ -52,7 +52,7 @@ auth.post('/login', (req, res) => {
             token: JWTToken,
           });
         }
-        return res.status(401).send({
+        return res.status(401).json({
           failed: 'Unauthorized Access',
         });
       });
