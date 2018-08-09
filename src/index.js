@@ -19,11 +19,10 @@ app.use(bodyParser.json());
 app.use('/auth', auth);
 // app.use(jwtVerify);
 
-app.post('/user/:email', (req, res) => {
-  console.log(req.body.email);
+app.post('/user', (req, res) => {
   User.findOne({ email: req.body.email })
     .exec()
-    .then(user => console.log(user));
+    .then(user => res.send(user));
 });
 
 let users = [];
