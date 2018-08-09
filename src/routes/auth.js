@@ -1,7 +1,9 @@
+/* eslint-disable */
 const express = require('express');
-const mongoose = require('mongoose');
 const User = require('../models/user');
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+/* eslint-enable */
 
 const auth = express.Router();
 const jwt = require('jsonwebtoken');
@@ -52,13 +54,13 @@ auth.post('/login', (req, res) => {
             token: JWTToken,
           });
         }
-        return res.status(401).json({
+        return res.send({
           failed: 'Unauthorized Access',
         });
       });
     })
     .catch((err) => {
-      res.status(500).send({ error: 'User not registered' });
+      res.send({ failed: 'User not registered' });
     });
 });
 
