@@ -148,6 +148,10 @@ app.use(bodyParser.json());
 app.use('/auth', auth);
 // app.use(jwtVerify);
 
+app.get('/', (req, res) => {
+  res.send('LOL');
+});
+
 app.post('/user', (req, res) => {
   User.findOne({ email: req.body.email }).exec().then(user => res.send(user));
 });
