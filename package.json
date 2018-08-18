@@ -5,6 +5,7 @@
   "author": "<vip.arman2011@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node ./src/index.js",
     "dev": "backpack",
     "build": "backpack build"
   },
