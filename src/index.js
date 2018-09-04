@@ -4,7 +4,8 @@ const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const auth = require('./routes/auth');
-require('dotenv').config();
+/* eslint-disable-next-line */
+if (process.env.NODE_ENV === 'development') require('dotenv').config();
 const User = require('./models/user');
 const jwtVerify = require('./middleware/jwtVerify');
 const cors = require('cors');
